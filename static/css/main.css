@@ -2488,7 +2488,10 @@
 
 .shop-cartbasket-empty {
     color: #999;
-    text-align: center
+    height: 100%;
+    min-height: 200px;
+
+
 }
 
 .shop-cartbasket-empty .icon-cart {
@@ -2499,7 +2502,12 @@
 
 .shop-cartbasket-empty p {
     font-size: 14px;
-    margin-bottom: 40px
+    width: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+/*     margin-bottom: 40px */
 }
 
 .shop-cartbasket {
@@ -2554,7 +2562,7 @@
 }
 
 .shop-cartbasket-tablerow .cell.itemquantity {
-    width: 25%;
+    width: 26%;
     text-align: center
 }
 
@@ -2958,7 +2966,7 @@
     height: 45px;
     position: relative;
     font-size: 14px;
-    border-bottom: 1px solid #eee
+    border-bottom: 1px solid #eee;
 }
 
 .shop-grouphead .shop-groupguidetip {
@@ -3672,7 +3680,7 @@
 
 .shopmenu-main.grid .shopmenu-food-price {
     position: absolute;
-    bottom: 10px
+/*     bottom: 10px */
 }
 
 .shopmenu-main.list .shopmenu-food {
@@ -4058,6 +4066,6 @@
 .fetchtakeout-dialog{
     z-index: 1009;
     left: 503px;
-    top: 0px;
+    top: 50px;
     display: block;
 }

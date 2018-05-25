@@ -4,7 +4,7 @@
         <div class="container clearfix">
             <div class="shopnav-left">
 
-                <a @click='goPath(food,index)' title="导航" v-for="(food,index) in navData" :key="index+'nav'" class="shopnav-tab" :class='{active:index == subscript}'>
+                <a @click='goPath(food,index)'  v-for="(food,index) in navData" :key="index+'nav'" class="shopnav-tab" :class='{active:index == subscript}'>
                 	 {{food.cname}}
                 </a>
 
@@ -57,15 +57,15 @@
       return {
        navData:[{
           name:'shopAll',
-          path:'/shopAll',
+          path:'shopAll',
           cname:'所有商品'
         	},{
           name:'rate',
-          path:'/rate',
+          path:'rate',
           cname:'评价'
         	},{
           name:'info',
-          path:'/info',
+          path:'info',
           cname:'商家资质'
         	}],
         	subscript:0

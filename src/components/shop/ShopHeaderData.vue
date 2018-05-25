@@ -1,7 +1,7 @@
-<!-- 头部 导航部分组件-->
+<!-- shop 头部 导航部分组件-->
 <template>
   <div class="header">
-    <header class="topbar" role="navigation">
+    <header class="topbar shoptopbar" role="navigation">
           <div class="container clearfix">
             <h1>
               <a href="/" hardjump="" class="topbar-logo icon-logo">

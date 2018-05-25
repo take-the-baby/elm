@@ -5,16 +5,16 @@
             <div class="container">
                 <div class="shopguide-info">
 
-                        <img :alt="$route.params.value.tradeName" itemprop="image" :src="$route.params.value.url">
+                        <img :alt="routeData.name" itemprop="image" :src="routeData.src">
                             <div class="shopguide-info-wrapper">
                                 <div>
-                                    <h1 class="ng-binding" itemprop="name"  title="$route.params.value.tradeName">
-                                        {{$route.params.value.tradeName}} 
+                                    <h1 class="ng-binding" itemprop="name"  :title="routeData.name">
+                                        {{routeData.name}} 
                                     </h1>
                                 </div>
                                 <p class="shopguide-info-rate">
                                     <div class="starrating icon-star ng-isolate-scope" rate-star="" rating="shop.rating" title="评分5.0分">
-                                        <span class="icon-star" style="width: 100%;">
+                                        <span class="icon-star" :style="routeData.star">
                                         </span>
                                     </div>
                                     (
@@ -98,7 +98,7 @@
                                         <p class="shopguide-extra-delivery">
                                             由
                                             <span class="ng-binding">
-                                                {{$route.params.value.tradeName}}
+                                                {{routeData.name}}
                                             </span>
                                             提供配送服务
                                         </p>
@@ -114,7 +114,7 @@
                             起送价
                         </em>
                         <em class="shopguide-server-value ng-binding">
-                             {{$route.params.value.qisong}}元
+                             {{routeData.qisong}}元
                         </em>
                     </span>
                     <span class="">
@@ -122,7 +122,7 @@
                             配送费
                         </em>
                         <em class="shopguide-server-value ng-binding">
-                            {{$route.params.value.dispatching}}
+                           配送费￥{{routeData.dispatching}}
                         </em>
                     </span>
                     <span class="" >
@@ -130,7 +130,7 @@
                             平均送达速度
                         </em>
                         <em class="shopguide-server-value ng-binding">
-                            {{$route.params.value.time}}
+                            {{routeData.time}}分钟
                         </em>
                     </span>
                 </div>
@@ -147,9 +147,39 @@
     </div>
 </template>
 <script>
-    export default {
+export default {
+    name:'ShopHeader',
+data () {
+    return {
+        routeData:null
+    }
+},
+computed:{
 
+},
+created () {
+    if (this.$route.query.value!== null) {
+         this.routeData = this.$route.query.value;
+    }
+},
+// watch:{
+//             // 通过这种语法来watch就行，文档里有。。。看需求，还可以直接watch data，使用deep:true来深度观察
+//             'routeData':{
+//                 handler:(val,oldVal)=>{
+//                     console.log(val)
+//                     console.log(oldVal)
+//                     //要执行的任务
+//                     //这里不知道怎么才能修改到this.data的数据，有知道的麻烦告知
+//                     //现在知道的就是通过直接修改Store.state的方式来更新数据，当然效果和修改this.data是一样的
+//                 },
+//                 // 深度观察
+//                 deep:true
+//             }
+//         },
 
+methods: {
+
+    }
 }
 </script>
 <style scoped="">

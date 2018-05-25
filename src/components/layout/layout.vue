@@ -1,21 +1,21 @@
 <template>
 	<div class="layout-main">
-		<HeaderData></HeaderData>
-		<SidebarData></SidebarData>
+		<header-data></header-data>
+		<sidebar-data></sidebar-data>
 		<router-view></router-view>
-		<FooterData></FooterData>
+		<footer-data></footer-data>
             <!-- 遮罩层 -->
     <div v-bind:class="{'shade':isActived}"></div>
     <!-- 谁去抢外卖 -->
-    <TakeDelivery v-on:getData="getTakeDelivery" v-if="conceal"></TakeDelivery>
+    <take-delivery v-on:getData="getTakeDelivery" v-if="conceal"></take-delivery>
 	</div>
 </template>
 
 <script>
-import HeaderData from '@/components/layout/headerData'
-import FooterData from '@/components/layout/footerData'
-import SidebarData from '@/components/layout/sidebarData'
-import TakeDelivery from '@/components/main/takeDelivery' // 谁去抢外卖内容的组件
+import HeaderData from '@/components/layout/HeaderData'
+import FooterData from '@/components/layout/FooterData'
+import SidebarData from '@/components/layout/SidebarData'
+import TakeDelivery from '@/components/main/TakeDelivery' // 谁去抢外卖内容的组件
 // import TakeOut from '@/components/main/takeOut.vue'; // 谁去拿外卖外面模型的组件
 	export default {
 		data (){

@@ -2,16 +2,16 @@
 	<div id="main">
 		<div class="ng-scope">
           <!-- 地址及搜索部分 -->
-          <Search></Search>
+          <search></search>
           <!-- 谁去拿外卖外面模型的部分 -->
-          <TakeOut v-on:TakeOutData="TakeDelivery"></TakeOut>
+          <take-out></take-out>
       <div class="container ng-scope">
             <!-- 菜单部分 -->
-              <Edit></Edit>
+              <Edit v-on:setData='ByValue'></Edit>
         <div class="place-rstbox clearfix">
           <!-- 商家信息列表 -->
           <div class="clearfix" >
-            <ListAdds></ListAdds>
+            <list-adds :getData='temporary'></list-adds>
             <router-view></router-view>
           </div>
           
@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import Edit from '@/components/main/menu.vue'; // 菜单部分的组件
-import Search from '@/components/main/search.vue' ;// 地址及搜索部分的组件
-import TakeOut from '@/components/main/takeOut.vue'; // 谁去拿外卖外面模型的组件
-import ListAdds from '@/components/main/listAdd.vue';
+import Edit from '@/components/main/Menu'; // 菜单部分的组件
+import Search from '@/components/main/Search' ;// 地址及搜索部分的组件
+import TakeOut from '@/components/main/TakeOut'; // 谁去拿外卖外面模型的组件
+import ListAdds from '@/components/main/ListAdd';
 // import TakeDelivery from '@/components/main/takeDelivery.vue'; // 谁去抢外卖内容的组件
 	export default {
 		components:{
@@ -39,24 +39,16 @@ import ListAdds from '@/components/main/listAdd.vue';
 		},
 		data() {
 			return{
- 			  activeClass:false,
-        isActived:false, // 控制遮罩层的class
-        conceal:false // 判断是否让‘谁去抢外卖’的显示和隐藏
+        temporary:"全部商家" // 默认值
 			}
       
 		},
-    methods:{
-      TakeDelivery () { // 让制遮罩层和谁去抢外卖的子组件显示
-        this.isActived = true;
-        this.conceal=true;
-      },   
-      // getTakeDelivery () {// 让制遮罩层和谁去抢外卖的子组件隐藏
-      //   this.conceal = false;
-      //   this.isActived = false;
-      // }
+    methods:{    
+       ByValue (val) { // 把子组件里接收传过来的值
+          this.temporary = val 
+       }
 
     }
-
 		
 	}
 </script>

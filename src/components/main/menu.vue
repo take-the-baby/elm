@@ -17,7 +17,7 @@
           <!-- 二级菜单 -->
           <!-- v-show -->
           <div class="excavator-filter-subbox" v-show="targetValue">
-              <a href="#" class='excavator-filter-item' v-for="(item,index) in this.datas.get(targetValue)" v-bind:key='index' v-on:click="addClassFun2(index)" 
+              <a href="#" class='excavator-filter-item' v-for="(item,index) in this.datas.get(targetValue)" v-bind:key='index' v-on:click="addClassFun2(index,$event)" 
                 v-bind:class='{focus:index===subscript2}'>
                 {{item}}
               </a> 
@@ -121,23 +121,28 @@
         
        subscript:"0",
        subscript2:"0",
-       targetValue:''
+       targetValue:'',
+       targetValue2:''
 
         }
       },
     methods: {
       addClassFun1 (index,e) { // 一级菜单的方法 
         this.targetValue = e.currentTarget.innerText;
-        this. subscript = index;
+        this. subscript = index; 
+
+        if (this.targetValue=="全部商家") {
+          this.$emit('setData',this.targetValue)
+        }
+        
         if (this.targetValue !== '') { // 当用户点击1级菜单是立刻让2级菜单跳转到‘全部’
           this.subscript2 = 0;
-          // this.$http.post('/components/menu.vue').then((val)=>{
-          //     console.log('')
-          // });
         }
       },
-      addClassFun2 (index) { // 二级菜单的方法 
+      addClassFun2 (index,e) { // 二级菜单的方法 
         this. subscript2 = index;
+        this.targetValue2 = e.currentTarget.innerText;
+        this.$emit('setData',this.targetValue2)
       }
 
     }

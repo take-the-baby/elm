@@ -4,6 +4,14 @@
 export default { 
 	//返回计数器
   count: (state) => {
-    return state.count;
+    return state.array;
   },
+  // 返回商品数据的数组
+  getData: (state) => {
+  	return state.menuData;
+  },
+  // 返回商品的总价
+  getPrice: (state) => {
+  	return state.menuPrice;
+  }
 }

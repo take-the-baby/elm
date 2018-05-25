@@ -9,7 +9,30 @@ export default {
   //示例
   decrement: ({ commit, state }) => {
     if (state.count > 0) {
-      commit(types.DECREMENT);
+      commit(types.DECREMENT); 
+
     }
   },
+  // 获得商品数据
+  adds:({ commit, state },data) => { 
+  			 commit(types.MENUDATA,data);
+  },
+  // 获得菜单的价格
+  compute:({ commit, state },data) => { 
+
+       commit(types.MENUNUM,data);
+      
+  },
+  // 清空
+  clear:({ commit,state}) => {
+    commit(types.MENUCLEAR);
+  },
+  // 本地商品数据传输
+  ByValueData:({ commit, state },data) => {
+    commit(types.BYVALUEDATA,data);
+  },
+  // 本地总价数据传输
+  ByValueMoney:({ commit, state },data) => {
+    commit(types.BYVALUEMONEY,data);
+  }
 }
